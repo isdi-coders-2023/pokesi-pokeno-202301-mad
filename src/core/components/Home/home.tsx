@@ -1,6 +1,6 @@
 import React from "react";
 
-function Home() {
+export function Home() {
   return (
     <div>
       <h1>Pokemon</h1>
@@ -8,5 +8,3 @@ function Home() {
     </div>
   );
 }
-
-export default Home;
