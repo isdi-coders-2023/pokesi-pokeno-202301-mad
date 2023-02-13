@@ -1,6 +1,6 @@
 import React from "react";
-import "../src/style.scss";
-import { Footer } from "./core/components/footer/footer";
+import "../../../style.scss";
+import { Footer } from "../footer/footer";
 
 function App() {
   return (
