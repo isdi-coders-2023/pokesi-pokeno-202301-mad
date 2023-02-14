@@ -10,12 +10,14 @@ footer {
   align-items: center;
   position: absolute;
   bottom: 0;
+  flex-direction: row;
+  flex-wrap: wrap;
 
   img {
     width: 1rem;
     height: 1rem;
   }
-  @media (min-width: 360px) {
+  @media (min-width: 380px) {
     footer {
       font-size: 1rem;
       height: 2.5rem;
