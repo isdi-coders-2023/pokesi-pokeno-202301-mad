@@ -13,18 +13,16 @@
     width: 90px;
     height: 90px;
   }
-
-  .card__container:hover {
-    transform: scale(1.05);
-    transition: transform 0.2s;
-  }
 }
 
 .card__container {
-  display: flex;
+  display: grid;
   gap: 1rem;
   padding: 0.5rem;
-  justify-content: center;
+  // justify-content: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+
   .card {
     @include card-box();
     list-style: none;
@@ -61,6 +59,27 @@
       .like-red {
         width: 1.5rem;
         height: 1.5rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 380px) {
+  .container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2rem;
+
+    .card__container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      gap: 4rem;
+      row-gap: 6rem;
+      justify-content: space-evenly;
+      grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+      .card {
+        transform: scale(1.3);
       }
     }
   }

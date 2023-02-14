@@ -3,7 +3,7 @@ import "./card.scss";
 
 export function Card() {
   return (
-    <div>
+    <div className="container">
       <ul className="card__container">
         {POKEMOCK.map((pokemon) => {
           return (
