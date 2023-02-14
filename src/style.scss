@@ -1,4 +1,5 @@
 $primary-font: "Press Start 2P", cursive;
+$types-font: #dad9d9;
 $type-normal: rgba(168, 168, 120, 255);
 $type-fire: rgba(240, 128, 48, 255);
 $type-water: rgba(104, 144, 240, 255);
@@ -46,6 +47,14 @@ $type-fairy: rgba(240, 182, 188, 255);
   padding-right: 1.5rem;
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;
+}
+
+@mixin types {
+  color: $types-font;
+  border-radius: 5px;
+  padding: 0.25rem;
+  display: flex;
+  justify-content: center;
 }
 
 @mixin card-box {
@@ -99,6 +108,80 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   background-image: url("../public/assets/menu/grass.png");
+}
+
+.fire {
+  @include types();
+  background-color: $type-fire;
+}
+
+.ghost {
+  @include types();
+  background-color: $type-ghost;
+}
+.water {
+  @include types();
+  background-color: $type-water;
+}
+.normal {
+  @include types();
+  background-color: $type-normal;
+}
+.grass {
+  @include types();
+  background-color: $type-grass;
+}
+.electric {
+  @include types();
+  background-color: $type-electric;
+}
+.ice {
+  @include types();
+  background-color: $type-ice;
+}
+.fighting {
+  @include types();
+  background-color: $type-fighting;
+}
+.poison {
+  @include types();
+  background-color: $type-poison;
+}
+.ground {
+  @include types();
+  background-color: $type-ground;
+}
+.flying {
+  @include types();
+  background-color: $type-flying;
+}
+.psychic {
+  @include types();
+  background-color: $type-psychic;
+}
+.bug {
+  @include types();
+  background-color: $type-bug;
+}
+.rock {
+  @include types();
+  background-color: $type-rock;
+}
+.dark {
+  @include types();
+  background-color: $type-dark;
+}
+.dragon {
+  @include types();
+  background-color: $type-dragon;
+}
+.steel {
+  @include types();
+  background-color: $type-steel;
+}
+.fairy {
+  @include types();
+  background-color: $type-fairy;
 }
 
 input,
