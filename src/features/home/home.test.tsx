@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import { Card } from "../../feature/card/component/card";
+import { Card } from "../card/component/card";
 import { Home } from "./home";
 jest.mock("../../feature/card/component/card");
 
