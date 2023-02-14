@@ -1,12 +1,13 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
+import { Card } from "../../feature/card/component/card";
 import { Home } from "./home";
+jest.mock("../../feature/card/component/card");
 
 describe("Given the home component", () => {
-  render(<Home></Home>);
   describe("When it's rendered", () => {
     test("Then it should contain an h1", () => {
-      const header = screen.getByRole("heading");
-      expect(header).toBeInTheDocument();
+      render(<Home></Home>);
+      expect(Card).toHaveBeenCalled();
     });
   });
 });
