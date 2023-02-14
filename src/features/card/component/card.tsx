@@ -8,7 +8,7 @@ export function Card() {
         {POKEMOCK.map((pokemon) => {
           return (
             <>
-              <li className="card" key={pokemon.name}>
+              <li className="card" key={pokemon.id}>
                 <div className="card__info">
                   <img src={pokemon.sprite} alt="" />
                   <h3 className="name">{pokemon.name.toUpperCase()}</h3>
