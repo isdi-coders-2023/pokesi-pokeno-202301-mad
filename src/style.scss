@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+  font-family: "Press Start 2P", cursive;
+  margin: 0;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background-image: url("../public/assets/menu/grass.png");
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  text-decoration: none;
+}
