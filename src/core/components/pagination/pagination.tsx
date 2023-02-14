@@ -27,12 +27,11 @@ export const Pagination: React.FC<PaginationProps> = ({ items, pageSize }) => {
   const paginatedItems = items.slice(startIndex, startIndex + pageSize);
 
   return (
-    <div>
-      {paginatedItems.map((item, index) => (
-        <div key={index}>{item}</div>
+    <ul>
+      {paginatedItems.map((item) => (
+        <li key={item.id}>{item.text}</li>
       ))}
-      <div>{pages}</div>
-    </div>
+    </ul>
   );
 };
 
