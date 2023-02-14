@@ -4,16 +4,15 @@
   display: flex;
   padding-left: 3rem;
   padding-right: 3rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   justify-content: space-between;
   align-items: center;
-  flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
 
   .header__logo {
-    width: 180px;
+    width: 190px;
     height: 80px;
   }
   .menu-ball {
@@ -28,8 +27,8 @@
       width: 100%;
     }
     .header__logo {
-      width: 290px;
-      height: 110px;
+      width: 250px;
+      height: 90px;
     }
     .menu-ball {
       display: none;
@@ -39,10 +38,10 @@
 
       .header-list {
         color: black;
-        font-size: 26px;
+        font-size: 16px;
         text-align: end;
         display: flex;
-        gap: 6rem;
+        gap: 4rem;
         justify-content: space-evenly;
         list-style: none;
         flex-wrap: wrap;
