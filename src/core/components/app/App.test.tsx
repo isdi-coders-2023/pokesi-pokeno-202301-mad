@@ -1,5 +1,7 @@
 import { render, screen } from "@testing-library/react";
+import { Home } from "../../../features/home/home";
 import App from "./App";
+jest.mock("../../../features/home/home");
 
 describe("Given App component", () => {
   render(<App />);
@@ -10,8 +12,7 @@ describe("Given App component", () => {
     });
     test("shows in the document the word", () => {
       render(<App />);
-      const headerElement = screen.getByText(/pokemon/i);
-      expect(headerElement).toBeInTheDocument();
+      expect(Home).toHaveBeenCalled();
     });
   });
 });
