@@ -11,25 +11,25 @@ export function Card() {
               <li className="card">
                 <div className="card__info">
                   <img src={pokemon.sprite} alt="" />
-                  <h3 className="name">{pokemon.name}</h3>
+                  <h3 className="name">{pokemon.name.toUpperCase()}</h3>
                 </div>
                 <div className="card__types">
-                  <div>
+                  <div className="types-container">
                     {pokemon.types.map((types) => {
-                      return <p>{types}</p>;
+                      return <p className={types}>{types}</p>;
                     })}
                   </div>
                   {pokemon.isFavorite ? (
                     <img
                       className="like-red"
                       src="../../../../assets/card/heartred.webp"
-                      alt="holis"
+                      alt="red heart button"
                     />
                   ) : (
                     <img
                       className="like-white"
                       src="../../../../assets/card/heart.png"
-                      alt="pepe"
+                      alt="white heart button"
                     ></img>
                   )}
                 </div>
