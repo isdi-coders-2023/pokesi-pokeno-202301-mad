@@ -16,7 +16,11 @@ export function Card() {
                 <div className="card__types">
                   <div className="types-container">
                     {pokemon.types.map((types) => {
-                      return <p className={types}>{types}</p>;
+                      return (
+                        <p className={types} key={types}>
+                          {types}
+                        </p>
+                      );
                     })}
                   </div>
                   {pokemon.isFavorite ? (
