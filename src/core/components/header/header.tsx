@@ -5,10 +5,15 @@ export function Header() {
     <header className="header">
       <img
         src="../../../../assets/header/logo.png"
-        className="header-logo"
+        className="header__logo"
         alt="Logo de pokemon"
       ></img>
-      <nav>
+      <img
+        src="../../../../assets/menu/pokeball.png"
+        className="menu-ball"
+        alt=""
+      />
+      <nav className="header-nav">
         <ul className="header-list">
           <li className="home">Home</li>
           <li className="favorites">Favorites</li>
