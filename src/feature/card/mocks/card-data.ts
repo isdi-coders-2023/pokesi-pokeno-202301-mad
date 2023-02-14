@@ -7,7 +7,7 @@ export const POKEMOCK = [
   },
   {
     name: "charmander",
-    types: ["fire", "fire"],
+    types: ["fire", "bug"],
     sprite: "../../../../assets/card/4.png",
     isFavorite: true,
   },
