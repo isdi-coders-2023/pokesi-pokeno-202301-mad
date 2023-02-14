@@ -2,12 +2,15 @@
   background-color: #d9d9d9;
   opacity: 0.8;
   display: flex;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
   justify-content: space-between;
   align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
 
   .header__logo {
     width: 180px;
@@ -20,9 +23,12 @@
   .header-nav {
     display: none;
   }
-  @media (min-width: 360px) {
+  @media (min-width: 760px) {
+    .header {
+      width: 100%;
+    }
     .header__logo {
-      width: 286px;
+      width: 290px;
       height: 110px;
     }
     .menu-ball {
@@ -30,16 +36,18 @@
     }
     .header-nav {
       display: initial;
+
       .header-list {
         color: black;
-        font-size: 30px;
+        font-size: 26px;
         text-align: end;
         display: flex;
         flex-direction: row;
-        gap: 1rem;
-        justify-content: space-between;
-
+        gap: 6rem;
+        justify-content: space-evenly;
         list-style: none;
+        flex-direction: row;
+        flex-wrap: wrap;
       }
     }
   }
