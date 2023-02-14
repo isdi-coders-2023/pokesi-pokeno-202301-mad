@@ -1,8 +1,100 @@
+$primary-font: "Press Start 2P", cursive;
+$type-normal: rgba(168, 168, 120, 255);
+$type-fire: rgba(240, 128, 48, 255);
+$type-water: rgba(104, 144, 240, 255);
+$type-grass: rgba(120, 200, 80, 255);
+$type-electric: rgba(248, 208, 48, 255);
+$type-ice: rgba(152, 216, 216, 255);
+$type-fighting: rgba(192, 48, 40, 255);
+$type-poison: rgba(160, 64, 160, 255);
+$type-ground: rgba(224, 192, 104, 255);
+$type-flying: rgba(168, 144, 240, 255);
+$type-psychic: rgba(248, 88, 136, 255);
+$type-bug: rgba(168, 184, 32, 255);
+$type-rock: rgba(184, 160, 56, 255);
+$type-ghost: rgba(112, 88, 152, 255);
+$type-dark: rgba(112, 88, 72, 255);
+$type-dragon: rgba(112, 56, 248, 255);
+$type-steel: rgba(184, 184, 208, 255);
+$type-fairy: rgba(240, 182, 188, 255);
+
+@mixin title-box {
+  background-color: rgba(217, 217, 217, 1);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  box-shadow: 0.5rem 0.5rem;
+  border-radius: 10px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+
+@mixin search-box {
+  background-color: rgba(217, 217, 217, 1);
+  font-size: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  box-shadow: 0.5rem 0.5rem;
+  border-radius: 10px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+
+@mixin card-box {
+  background-color: rgba(217, 217, 217, 0.8);
+  border: 1px solid black;
+  box-shadow: 0.5rem 0.5rem;
+  border-radius: 10px;
+  display: flex;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  font-size: 1rem;
+
+  img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .card__container:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s;
+  }
+}
+
+@mixin form-box {
+  background-color: rgba(187, 207, 174, 0.8);
+}
+
+@mixin card-detail {
+  display: flex;
+  align-items: center;
+}
+
+@mixin mobile-menu {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
 * {
   box-sizing: border-box;
-  font-family: "Press Start 2P", cursive;
+  font-family: $primary-font;
   margin: 0;
+  list-style: none;
 }
+
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
