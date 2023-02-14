@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
 import "./pagination.scss";
 
@@ -28,12 +29,11 @@ const Pagination: React.FC<PaginationProps> = ({ items, pageSize }) => {
   const paginatedItems = items.slice(startIndex, startIndex + pageSize);
 
   return (
-    <div>
+    <ul>
       {paginatedItems.map((item, index) => (
-        <div key={index}>{item}</div>
+        <li key={index}>{item}</li>
       ))}
-      <div>{pages}</div>
-    </div>
+    </ul>
   );
 };
 
