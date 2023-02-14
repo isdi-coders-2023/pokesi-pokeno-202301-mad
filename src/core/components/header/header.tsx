@@ -1,3 +1,4 @@
+import { Menu } from "../menu/menu";
 import "./header.scss";
 
 export function Header() {
@@ -13,14 +14,7 @@ export function Header() {
         className="menu-ball"
         alt=""
       />
-      <nav className="header-nav">
-        <ul className="header-list">
-          <li className="home">Home</li>
-          <li className="favorites">Favorites</li>
-          <li className="create-trainer">Create a trainer</li>
-          <li className="your-trainer">Your Trainer</li>
-        </ul>
-      </nav>
+      <Menu></Menu>
     </header>
   );
 }
