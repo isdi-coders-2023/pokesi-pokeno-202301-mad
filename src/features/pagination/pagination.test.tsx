@@ -1,46 +1,83 @@
-/* eslint-disable testing-library/prefer-screen-queries */
-import React from "react";
-import { render, fireEvent } from "@testing-library/react";
-import Pagination from "./pagination";
+/* eslint-disable testing-library/no-node-access */
+import { render, screen, fireEvent } from "@testing-library/react";
+import UsersList from "./pagination";
 
-test("renders pagination component", () => {
-  render(<Pagination items={[]} pageSize={0} />);
-});
-describe("pagination component", () => {
-  const items = Array.from({ length: 15 }, (_, index) => `Item ${index}`);
-  const pageSize = 5;
+describe("UsersList", () => {
+  const users = [
+    {
+      id: 1,
+      name: "John Doe",
+      email: "john.doe@example.com",
+      phone: "123-456-7890",
+    },
+    {
+      id: 2,
+      name: "Jane Smith",
+      email: "jane.smith@example.com",
+      phone: "555-555-5555",
+    },
+  ];
 
-  it("should render items on first page", () => {
-    const { getByText } = render(
-      <Pagination items={items} pageSize={pageSize} />
-    );
+  const apiResponse = {
+    page: 1,
+    perPage: 10,
+    total: 2,
+    totalPages: 1,
+    data: users,
+  };
 
-    expect(getByText("Item 0")).toBeInTheDocument();
-    expect(getByText("Item 1")).toBeInTheDocument();
-    expect(getByText("Item 2")).toBeInTheDocument();
-    expect(getByText("Item 3")).toBeInTheDocument();
-    expect(getByText("Item 4")).toBeInTheDocument();
-    expect(() => getByText("Item 5")).toThrow();
+  beforeAll(() => {
+    jest.spyOn(global, "fetch").mockResolvedValue({
+      json: jest.fn().mockResolvedValue(apiResponse),
+    } as unknown as Response);
   });
 
-  it("should render items on second page when next page button is clicked", () => {
-    const { getByText } = render(
-      <Pagination items={items} pageSize={pageSize} />
-    );
+  afterAll(() => {
+    jest.restoreAllMocks();
+  });
 
-    const nextPageButton = getByText("2");
-    fireEvent.click(nextPageButton);
+  it("displays a list of users and pagination buttons", async () => {
+    render(<UsersList />);
+    const previousButton = screen.getByRole("button", { name: /previous/i });
+    const nextButton = screen.getByRole("button", { name: /next/i });
+    const usersList = await screen.findByRole("list");
+    expect(usersList.children.length).toEqual(users.length);
+    expect(previousButton).toBeDisabled();
+    expect(nextButton).toBeDisabled();
+  });
 
-    expect(() => getByText("Item 0")).toThrow();
-    expect(() => getByText("Item 1")).toThrow();
-    expect(() => getByText("Item 2")).toThrow();
-    expect(() => getByText("Item 3")).toThrow();
-    expect(() => getByText("Item 4")).toThrow();
-    expect(getByText("Item 5")).toBeInTheDocument();
-    expect(getByText("Item 6")).toBeInTheDocument();
-    expect(getByText("Item 7")).toBeInTheDocument();
-    expect(getByText("Item 8")).toBeInTheDocument();
-    expect(getByText("Item 9")).toBeInTheDocument();
-    expect(() => getByText("Item 10")).toThrow();
+  it('enables the "Next" button when there are more pages', async () => {
+    const totalPages = 2;
+    const apiResponseWithMorePages = { ...apiResponse, totalPages };
+    jest.spyOn(global, "fetch").mockResolvedValueOnce({
+      json: jest.fn().mockResolvedValue(apiResponseWithMorePages),
+    } as unknown as Response);
+    render(<UsersList />);
+    const previousButton = screen.getByRole("button", { name: /previous/i });
+    const nextButton = screen.getByRole("button", { name: /next/i });
+    await screen.findByRole("list");
+    expect(previousButton).toBeDisabled();
+    expect(nextButton).toBeEnabled();
+    fireEvent.click(nextButton);
+    expect(previousButton).toBeEnabled();
+    expect(nextButton).toBeDisabled();
+  });
+
+  it("loads the previous or next page of users when the corresponding button is clicked", async () => {
+    const totalPages = 2;
+    const apiResponseWithMorePages = { ...apiResponse, totalPages };
+    jest.spyOn(global, "fetch").mockResolvedValueOnce({
+      json: jest.fn().mockResolvedValue(apiResponseWithMorePages),
+    } as unknown as Response);
+    render(<UsersList />);
+    const previousButton = screen.getByRole("button", { name: /previous/i });
+    const nextButton = screen.getByRole("button", { name: /next/i });
+    await screen.findByRole("list");
+    fireEvent.click(nextButton);
+    const usersList = await screen.findByRole("list");
+    expect(usersList.children.length).toEqual(users.length);
+    fireEvent.click(previousButton);
+    const updatedUsersList = await screen.findByRole("list");
+    expect(updatedUsersList.children.length).toEqual(users.length);
   });
 });
