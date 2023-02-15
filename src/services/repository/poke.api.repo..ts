@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-useless-constructor */
+import { PokeStructure } from "../../models/poke";
 
 export class PokeApiRepo {
   url: string;
@@ -7,49 +8,16 @@ export class PokeApiRepo {
     this.url = "https://pokeapi.co/api/v2/pokemon/";
   }
 
-  async loadPokes() {
+  async loadPokemons(): Promise<PokeStructure[]> {
     const resp = await fetch(this.url);
     const data = await resp.json();
-    return data;
+    const pokemonArray = Object.values(data.results);
+    const promise = pokemonArray.map(async (pokemon: any) => {
+      const response = await fetch(pokemon.url);
+      return response.json();
+    });
+    const pokeData = await Promise.all(promise);
+    console.log(pokeData);
+    return pokeData;
   }
-
-  // async getPoke(id: PokeStructure["id"]): Promise<PokeStructure> {
-  //   const url = this.url + "/" + id;
-  //   const resp = await fetch(url);
-  //   const data = (await resp.json()) as PokeStructure;
-  //   return data;
-  // }
-
-  // async createPoke(poke: ProtoPokeStructure): Promise<PokeStructure> {
-  //   const resp = await fetch(this.url, {
-  //     method: "POST",
-  //     body: JSON.stringify(poke),
-  //     headers: {
-  //       "Content-type": "application/json",
-  //     },
-  //   });
-  //   const data = (await resp.json()) as PokeStructure;
-  //   return data;
-  // }
-
-  // async update(poke: Partial<PokeStructure>): Promise<PokeStructure> {
-  //   const url = this.url + "/" + poke.id;
-  //   const resp = await fetch(url, {
-  //     method: "PATCH",
-  //     body: JSON.stringify(poke),
-  //     headers: {
-  //       "Content-type": "application/json",
-  //     },
-  //   });
-  //   const data = (await resp.json()) as PokeStructure;
-  //   return data;
-  // }
-
-  // async delete(id: PokeStructure["id"]): Promise<void> {
-  //   const url = this.url + "/" + id;
-  //   const resp = await fetch(url, {
-  //     method: "DELETE",
-  //   });
-  //   if (!resp.ok) throw new Error("Delete not possible");
-  // }
 }

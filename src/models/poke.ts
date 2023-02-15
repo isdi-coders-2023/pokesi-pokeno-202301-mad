@@ -1,15 +1,27 @@
 /* eslint-disable no-unused-vars */
-type HasId = {
-  id: string;
+
+export type LoadPokeStructure = {
+  count: number;
+  next: string;
+  previous: null | string;
+  results: [
+    {
+      name: string;
+      url: string;
+    }
+  ];
 };
 
-export type ProtoPokeStructure = {
+type hasFavorite = {
+  isFavorite: boolean;
+};
+
+export type PokeStructure = {
+  base_experience: number;
+  height: number;
+  pokedex: number;
   name: string;
-  url: string;
+  sprites: { front_default: string };
+  types: [{ num: { type: { name: string } } }];
+  weight: number;
 };
-
-export type PokeStructure = HasId & ProtoPokeStructure;
-
-export class ProtoPoke implements ProtoPokeStructure {
-  constructor(public name: string, public url: string) {}
-}
