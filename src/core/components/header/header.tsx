@@ -1,9 +1,9 @@
-import { Menu } from "../menu/menu";
+import { Menu } from "../../../features/menu/menu";
 import "./header.scss";
 
 export function Header() {
   return (
-    <header className="header">
+    <header className="header header-error">
       <img
         src="../../../../assets/header/logo.png"
         className="header__logo"
