@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./error.scss";
 export function Error() {
   return (
@@ -7,7 +8,7 @@ export function Error() {
         <img src="../../../../assets/error/snorlax.gif" alt="snorlax" />
         <h2>Path not found</h2>
         <button type="button" className="button-home">
-          Home
+          <Link to="/">Home</Link>
         </button>
       </div>
     </>

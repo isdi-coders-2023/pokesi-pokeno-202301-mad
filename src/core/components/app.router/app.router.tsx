@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { Home } from "../../../features/home/home";
 import { MenuOption } from "../app/App";
 import { Navigate, Route, Routes } from "react-router-dom";
+import { Error } from "../../../features/error/error";
 const Home = lazy (() => import('../../../features/home/home'))
 const Favorites = lazy (() => import ())
 const CreateTrainer = lazy (() => import())
@@ -30,7 +31,7 @@ export function AppRouter({ menuOptions }: AppRouterProps) {
         </Route>
         <Route
           path={"*"}
-          element={<Navigate to={"/home"} replace={true} />}
+          element={<Error></Error>}
         ></Route>
       </Routes>
     </Suspense>
