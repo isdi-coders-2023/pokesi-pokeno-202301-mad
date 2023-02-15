@@ -1,4 +1,4 @@
-import { Menu } from "../../../features/menu/menu";
+import { Menu } from "../menu/menu";
 import "./header.scss";
 
 export function Header() {
