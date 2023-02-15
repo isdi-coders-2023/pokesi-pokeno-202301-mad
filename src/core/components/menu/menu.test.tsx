@@ -4,9 +4,9 @@ import { Menu } from "./menu";
 describe("Given menu component", () => {
   render(<Menu></Menu>);
   describe("When its rendered", () => {
-    test("Then  it should render a menu", () => {
-      const list = screen.getByText(/home/i);
-      expect(list).toBeInTheDocument();
+    test("Then it should render home as a list element", () => {
+      const listElement = screen.getByText(/home/i);
+      expect(listElement).toBeInTheDocument();
     });
   });
 });

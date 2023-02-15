@@ -1,13 +1,13 @@
 import { render } from "@testing-library/react";
-import { Card } from "../card/component/card";
+import { Cards } from "../cards/cards";
 import { Home } from "./home";
-jest.mock("../../features/card/component/card");
+jest.mock("../cards/cards");
 
 describe("Given the home component", () => {
   describe("When it's rendered", () => {
-    test("Then it should contain an h1", () => {
+    test("Then it should contain Home component", () => {
       render(<Home></Home>);
-      expect(Card).toHaveBeenCalled();
+      expect(Cards).toHaveBeenCalled();
     });
   });
 });
