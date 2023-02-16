@@ -10,19 +10,17 @@ export type MenuOption = {
   path: string;
 };
 
-const menuOptions: MenuOption[] = [
+export const menuOptions: MenuOption[] = [
   { label: "Home", path: "/home" },
   { label: "Favorites", path: "/favorites" },
   { label: "Create a trainer", path: "/create-trainer" },
-  { label: "Your trainer", path: "your-trainer" },
+  { label: "Your trainer", path: "/your-trainer" },
 ];
 
 function App() {
   return (
     <div className="App">
-      <Header>
-        <Menu options={menuOptions}></Menu>
-      </Header>
+      <Header></Header>
       <Home></Home>
       <Footer></Footer>
     </div>
