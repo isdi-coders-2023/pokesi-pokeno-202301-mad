@@ -6,7 +6,7 @@ import { Error } from "../error/error";
 
 const Home = lazy(() => import("../home/home"));
 // const Favorites = lazy (() => import ())
-// const CreateTrainer = lazy (() => import())
+const CreateTrainer = lazy(() => import("../form/form"));
 // const YourTrainer = lazy (() => import())
 
 type AppRouterProps = {
@@ -20,11 +20,13 @@ export function AppRouter({ menuOptions }: AppRouterProps) {
         <Route path={"/"} element={<Home></Home>}></Route>
         <Route path={"/home"} element={<Home></Home>}></Route>
         {/* <Route path={menuOptions[0].path} element={<Favorites></Favorites>}>
-        </Route>
-        <Route path={menuOptions[1].path} element={<CreateTrainer></CreateTrainer>}>
-        </Route>
-        <Route  path={menuOptions[2].path} element={<YourTrainer></YourTrainer>}>
         </Route> */}
+        <Route
+          path={menuOptions[1].path}
+          element={<CreateTrainer></CreateTrainer>}
+        ></Route>
+        {/* <Route  path={menuOptions[2].path} element={<YourTrainer></YourTrainer>}>
+        </Route>  */}
         <Route path={"*"} element={<Error></Error>}></Route>
       </Routes>
     </Suspense>

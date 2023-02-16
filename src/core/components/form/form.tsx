@@ -1,8 +1,8 @@
 import { SyntheticEvent, useState } from "react";
 import "../form/form.scss";
 
-export function Form() {
-  const [nameTrainer, setNameTreainer] = useState("");
+export default function Form() {
+  const [nameTrainer, setNameTrainer] = useState("");
   const [favoriteType, setFavoriteType] = useState("");
   const [region, setRegion] = useState("");
   // const []img
