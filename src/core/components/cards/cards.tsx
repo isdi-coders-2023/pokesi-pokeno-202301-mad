@@ -1,9 +1,9 @@
 import { PokeApiRepo } from "../../../services/repository/poke.api.repo.";
 import { PokeStructure } from "../../../models/poke";
-import "./card.scss";
+import "./cards.scss";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
-export function Card() {
+export function Cards() {
   const repo = useMemo(() => new PokeApiRepo(), []);
 
   const [some, setSome] = useState<PokeStructure[]>([]);
@@ -18,7 +18,7 @@ export function Card() {
   }, [handleLoad]);
 
   return (
-    <div>
+    <div className="container">
       <ul className="card__container">
         {some.map((pokemon) => {
           return (
