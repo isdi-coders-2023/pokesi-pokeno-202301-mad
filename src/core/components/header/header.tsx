@@ -1,9 +1,7 @@
-import { menuOptions } from "../app/App";
-import { Menu } from "../menu/menu";
 import "./header.scss";
 
 type HeaderProps = { children: JSX.Element };
-export function Header() {
+export function Header({ children }: HeaderProps) {
   return (
     <header className="header header-error">
       <img
@@ -16,7 +14,7 @@ export function Header() {
         className="menu-ball"
         alt=""
       />
-      <Menu options={menuOptions}></Menu>
+      {children}
     </header>
   );
 }

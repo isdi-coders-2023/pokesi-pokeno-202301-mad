@@ -1,7 +1,9 @@
 import "../../../style.scss";
+import { AppRouter } from "../app.router/app.router";
 import { Footer } from "../footer/footer";
 import { Header } from "../header/header";
 import { Home } from "../home/home";
+import { Menu } from "../menu/menu";
 
 export type MenuOption = {
   label: string;
@@ -18,7 +20,9 @@ export const menuOptions: MenuOption[] = [
 function App() {
   return (
     <div className="App">
-      <Header></Header>
+      <Header>
+        <Menu options={menuOptions}></Menu>
+      </Header>
       <Home></Home>
       <Footer></Footer>
     </div>
