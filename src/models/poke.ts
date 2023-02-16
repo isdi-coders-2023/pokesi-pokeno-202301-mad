@@ -12,16 +12,17 @@ export type LoadPokeStructure = {
   ];
 };
 
-type hasFavorite = {
-  isFavorite: boolean;
-};
-
 export type PokeStructure = {
   base_experience: number;
   height: number;
   pokedex: number;
   name: string;
   sprites: { front_default: string };
-  types: [{ num: { type: { name: string } } }];
+  types: [{ type: { name: string } }];
   weight: number;
+  isFavorite: false;
+};
+
+export type TypeStructure = {
+  results: [{ name: string }];
 };
