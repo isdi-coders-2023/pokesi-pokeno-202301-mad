@@ -26,7 +26,7 @@ export class PokeApiRepo {
   }
 
   async sortPokemons(arr: PokeApiType) {
-    const sorted = (await arr).map((item) => item.url);
+    const sorted = arr.map((item) => item.url);
     const fetchUrl = sorted.map(async (link) => {
       const response = await fetch(link);
       const resData = await response.json();
