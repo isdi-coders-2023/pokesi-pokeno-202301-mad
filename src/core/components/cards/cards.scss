@@ -27,18 +27,11 @@
   list-style: none;
   flex-direction: column;
   width: 9rem;
-  &info {
+  &__info {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-
-  .card__info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
   .name {
     font-size: 0.6rem;
     padding-block-end: 1rem;

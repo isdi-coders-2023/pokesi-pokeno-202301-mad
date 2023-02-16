@@ -1,12 +1,16 @@
+/* eslint-disable testing-library/no-render-in-setup */
 import { render, screen } from "@testing-library/react";
+import { MemoryRouter as Router } from "react-router-dom";
 import { Error } from "./error";
 
 describe("Given Error component", () => {
-  render(<Error></Error>);
-  describe("When its rendered", () => {
-    test("Then  it should render", () => {
-      const error = screen.getByText(/home/i);
-      expect(error).toBeInTheDocument();
-    });
+  test("Then it should contain headers", () => {
+    render(
+      <Router>
+        <Error></Error>
+      </Router>
+    );
+    const headers = screen.getAllByRole("heading");
+    expect(headers[0]).toBeInTheDocument();
   });
 });
