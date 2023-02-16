@@ -1,9 +1,7 @@
-import React from "react";
 import "../../../style.scss";
 import { Footer } from "../footer/footer";
 import { Header } from "../header/header";
-import { Home } from "../../../features/home/home";
-import { Menu } from "../../../features/menu/menu";
+import { Home } from "../home/home";
 
 export type MenuOption = {
   label: string;
