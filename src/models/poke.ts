@@ -15,7 +15,7 @@ export type LoadPokeStructure = {
 export type PokeStructure = {
   base_experience: number;
   height: number;
-  pokedex: number;
+  id: number;
   name: string;
   sprites: { front_default: string };
   types: [{ type: { name: string } }];
@@ -23,6 +23,6 @@ export type PokeStructure = {
   isFavorite: false;
 };
 
-export type TypeStructure = {
+export type InfoStructure = {
   results: [{ name: string }];
 };
