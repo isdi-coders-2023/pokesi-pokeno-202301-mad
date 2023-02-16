@@ -1,12 +1,20 @@
+/* eslint-disable testing-library/no-render-in-setup */
 import { render, screen } from "@testing-library/react";
+import { Menu } from "../menu/menu";
 import { Header } from "./header";
+jest.mock("../menu/menu");
 
 describe("Given header component", () => {
-  render(<Header></Header>);
+  beforeEach(() => {
+    render(<Header></Header>);
+  });
   describe("When its rendered", () => {
     test("Then  it should render a list", () => {
-      const list = screen.getByText(/home/i);
-      expect(list).toBeInTheDocument();
+      const img = screen.getByAltText(/logo de/i);
+      expect(img).toBeInTheDocument();
+    });
+    test("Then it should contain Menu component", () => {
+      expect(Menu).toHaveBeenCalled();
     });
   });
 });

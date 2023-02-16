@@ -1,8 +1,8 @@
 import { screen, render } from "@testing-library/react";
-import { Card } from "./card";
+import { Cards } from "./cards";
 
 describe("Given the Card component", () => {
-  render(<Card></Card>);
+  render(<Cards></Cards>);
   describe("When it's rendered", () => {
     test("Then it should contain cards with heading elements", () => {
       const names = screen.getAllByRole("heading");

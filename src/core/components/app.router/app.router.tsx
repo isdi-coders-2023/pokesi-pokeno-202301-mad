@@ -1,9 +1,11 @@
 import { lazy, Suspense } from "react";
-import { Home } from "../../../features/home/home";
+
 import { MenuOption } from "../app/App";
-import { Navigate, Route, Routes } from "react-router-dom";
-import { Error } from "../../../features/error/error";
-const Home = lazy (() => import('../../../features/home/home'))
+import {  Route, Routes } from "react-router-dom";
+import { Error } from "../error/error";
+import { Home } from "../home/home";
+
+const Home = lazy (() => import('../home/home'))
 const Favorites = lazy (() => import ())
 const CreateTrainer = lazy (() => import())
 const YourTrainer = lazy (() => import())

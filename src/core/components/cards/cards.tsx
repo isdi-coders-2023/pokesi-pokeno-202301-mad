@@ -1,7 +1,7 @@
-import { POKEMOCK } from "../mocks/card-data";
-import "./card.scss";
+import { POKEMOCK } from "../../mocks/card-data";
+import "./cards.scss";
 
-export function Card() {
+export function Cards() {
   return (
     <div>
       <ul className="card__container">
