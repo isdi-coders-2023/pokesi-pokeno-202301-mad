@@ -13,7 +13,6 @@ export function Form() {
     region: region,
     //img: trainer,
   };
-
   const handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
   };

@@ -29,9 +29,13 @@
 
       .send {
         display: flex;
-        gap: 1rem;
-        margin-top: 1rem;
+        border: 1px solid black;
+        box-shadow: 0.2rem 0.2rem;
+        font-size: 1rem;
+        border-radius: 10px;
       }
     }
   }
+}
+@media (min-width: 760px) {
 }
