@@ -1,5 +1,3 @@
-import { screen } from "@testing-library/react";
-import { act } from "react-dom/test-utils";
 import { LoadPokeStructure, PokeStructure } from "../../models/poke";
 import { PokeApiRepo } from "./poke.api.repo";
 
@@ -29,6 +27,13 @@ describe("Given the PokeApiRepo", () => {
       const result =
         (await repo.loadPokemons()) as unknown as LoadPokeStructure;
       expect(result).toEqual(Object(result));
+    });
+  });
+  describe("When loadTypes is called", () => {
+    test("Then some 2", () => {
+      global.fetch = jest.fn().mockResolvedValue({
+        json: jest.fn().mockResolvedValue(mock),
+      });
     });
   });
 });
