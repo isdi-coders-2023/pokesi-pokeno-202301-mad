@@ -1,8 +1,4 @@
-import {
-  InfoStructure,
-  LoadPokeStructure,
-  PokeStructure,
-} from "../../models/poke";
+import { InfoStructure, LoadPokeStructure } from "../../models/poke";
 import { PokeApiRepo } from "./poke.api.repo";
 
 global.fetch = jest.fn().mockResolvedValue({});
