@@ -1,7 +1,6 @@
-import { Menu } from "../../../features/menu/menu";
 import "./header.scss";
 
-type HeaderProps = { children: JSX.Element };
+type HeaderProps = { children: JSX.Element; };
 export function Header({ children }: HeaderProps)) {
   return (
     <header className="header header-error">
