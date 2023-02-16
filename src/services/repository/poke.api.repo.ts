@@ -21,7 +21,6 @@ export class PokeApiRepo {
     const res = await fetch(this.url);
     const data = (await res.json()) as LoadPokeStructure;
     const pokeArr = Object.values(data.results);
-    console.log(pokeArr);
     const some = await this.sortPokemons(pokeArr);
     return await Promise.all(some);
   }
