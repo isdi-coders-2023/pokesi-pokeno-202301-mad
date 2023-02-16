@@ -1,6 +1,11 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-useless-constructor */
-import { PokeStructure, InfoStructure } from "../../models/poke";
+import { InfoStructure, LoadPokeStructure } from "../../models/poke";
+
+export type PokeApiType = {
+  name: string;
+  url: string;
+}[];
 
 export class PokeApiRepo {
   url: string;
@@ -12,16 +17,23 @@ export class PokeApiRepo {
     this.regionsUrl = "https://pokeapi.co/api/v2/region/";
   }
 
-  async loadPokemons(): Promise<PokeStructure[]> {
-    const resp = await fetch(this.url);
-    const data = await resp.json();
-    const pokemonArray = Object.values(data.results);
-    const promise = pokemonArray.map(async (pokemon: any) => {
-      const response = await fetch(pokemon.url);
-      return response.json();
+  async loadPokemons() {
+    const res = await fetch(this.url);
+    const data = (await res.json()) as LoadPokeStructure;
+    const pokeArr = Object.values(data.results);
+    console.log(pokeArr);
+    const some = await this.sortPokemons(pokeArr);
+    return await Promise.all(some);
+  }
+
+  async sortPokemons(arr: PokeApiType) {
+    const sorted = (await arr).map((item) => item.url);
+    const fetchUrl = sorted.map(async (link) => {
+      const response = await fetch(link);
+      const resData = await response.json();
+      return resData;
     });
-    const pokeData = await Promise.all(promise);
-    return pokeData;
+    return fetchUrl;
   }
 
   async loadTypes(): Promise<string[]> {
