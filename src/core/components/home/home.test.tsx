@@ -1,6 +1,7 @@
 import { render } from "@testing-library/react";
 import { Cards } from "../cards/cards";
-import { Home } from "./home";
+import Home from "./home";
+
 jest.mock("../cards/cards");
 
 describe("Given the home component", () => {

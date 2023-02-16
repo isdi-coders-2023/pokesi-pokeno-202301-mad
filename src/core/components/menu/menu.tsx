@@ -1,4 +1,10 @@
-export function Menu() {
+import { MenuOption } from "../app/App";
+
+type MenuProps = {
+  options: MenuOption[];
+};
+
+export function Menu({ options }: MenuProps) {
   return (
     <nav className="header-nav">
       <ul className="header-list">
