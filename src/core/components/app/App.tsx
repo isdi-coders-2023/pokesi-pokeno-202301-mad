@@ -1,8 +1,8 @@
 import "../../../style.scss";
+import React from "react";
 import { AppRouter } from "../app.router/app.router";
 import { Footer } from "../footer/footer";
 import { Header } from "../header/header";
-import { Home } from "../home/home";
 import { Menu } from "../menu/menu";
 
 export type MenuOption = {
@@ -23,7 +23,7 @@ function App() {
       <Header>
         <Menu options={menuOptions}></Menu>
       </Header>
-      <Home></Home>
+      <AppRouter menuOptions={menuOptions}></AppRouter>
       <Footer></Footer>
     </div>
   );
