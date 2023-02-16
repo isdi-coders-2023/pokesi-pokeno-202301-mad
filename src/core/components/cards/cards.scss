@@ -14,7 +14,7 @@
   }
 }
 
-.cardcontainer {
+.card__container {
   display: grid;
   gap: 1rem;
   padding: 0.5rem;
@@ -36,7 +36,7 @@
     font-size: 0.6rem;
     padding-block-end: 1rem;
   }
-  .cardtypes {
+  .card__types {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -66,7 +66,7 @@
     padding-top: 2.5rem;
     padding-bottom: 2rem;
 
-    .cardcontainer {
+    .card__container {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
       gap: 4rem;

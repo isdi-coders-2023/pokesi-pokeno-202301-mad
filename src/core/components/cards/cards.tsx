@@ -13,6 +13,8 @@ export function Cards() {
     setSome(poke);
   }, [repo]);
 
+  repo.loadTypes();
+
   useEffect(() => {
     handleLoad();
   }, [handleLoad]);
@@ -32,16 +34,13 @@ export function Cards() {
                   <div className="types-container">
                     {pokemon.types.map((types) => {
                       return (
-                        <p
-                          className={types.num.type.name}
-                          key={types.num.type.name}
-                        >
-                          {types.num.type.name}
+                        <p className={types.type.name} key={types.type.name}>
+                          {types.type.name}
                         </p>
                       );
                     })}
                   </div>
-                  {/* {pokemon.isFavorite ? (
+                  {pokemon.isFavorite ? (
                     <img
                       className="like-red"
                       src="../../../../assets/card/heartred.webp"
@@ -53,7 +52,7 @@ export function Cards() {
                       src="../../../../assets/card/heart.png"
                       alt="white heart button"
                     ></img>
-                  )} */}
+                  )}
                 </div>
               </li>
             </>
