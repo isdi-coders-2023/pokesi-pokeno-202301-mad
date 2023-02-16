@@ -1,4 +1,4 @@
-import { PokeApiRepo } from "../../../services/repository/poke.api.repo.";
+import { PokeApiRepo } from "../../../services/repository/poke.api.repo";
 import { PokeStructure } from "../../../models/poke";
 import "./cards.scss";
 import { useCallback, useEffect, useMemo, useState } from "react";
