@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { MenuOption } from "../app/App";
 
 type MenuProps = {
@@ -9,9 +10,15 @@ export function Menu({ options }: MenuProps) {
     <nav className="header-nav">
       <ul className="header-list">
         <li className="home">Home</li>
-        <li className="favorites">Favorites</li>
-        <li className="create-trainer">Create a trainer</li>
-        <li className="your-trainer">Your Trainer</li>
+        <li className="favorites">
+          <Link to="/">Favorites</Link>
+        </li>
+        <li className="create-trainer">
+          <Link to="/">Create a trainer</Link>
+        </li>
+        <li className="your-trainer">
+          <Link to="/">Your trainer</Link>
+        </li>
       </ul>
     </nav>
   );

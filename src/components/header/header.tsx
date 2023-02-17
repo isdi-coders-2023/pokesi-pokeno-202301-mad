@@ -14,6 +14,7 @@ export function Header({ children }: HeaderProps) {
         className="menu-ball"
         alt=""
       />
+
       {children}
     </header>
   );
