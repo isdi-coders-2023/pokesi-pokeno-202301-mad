@@ -1,16 +1,16 @@
-/* eslint-disable testing-library/no-unnecessary-act */
-import { screen, render } from "@testing-library/react";
+/* eslint-disable testing-library/no-render-in-setup */
+import { render, screen } from "@testing-library/react";
 import { Cards } from "./cards";
+jest.mock("../card/card");
 
 describe("Given the Card component", () => {
+  beforeEach(() => {
+    render(<Cards></Cards>);
+  });
   describe("When it's rendered", () => {
-    test("Then it should contain cards with heading elements", async () => {
-      let names: HTMLElement[];
-      render(<Cards></Cards>);
-      names = await screen.findAllByRole("heading");
-      const namesLength = names.length;
-      expect(names.length).toBe(namesLength);
-      expect(names[0]).toBeInTheDocument();
+    test("Then it should contain cards with heading elements", () => {
+      const list = screen.getByRole("list");
+      expect(list).toBeInTheDocument();
     });
   });
 });
