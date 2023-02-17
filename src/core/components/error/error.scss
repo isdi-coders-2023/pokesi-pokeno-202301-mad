@@ -30,6 +30,10 @@
     box-shadow: 0.2rem 0.2rem;
     font-size: 1rem;
     border-radius: 10px;
+    .error-link {
+      text-decoration: none;
+      color: inherit;
+    }
   }
 
   @media (min-width: 380px) {
