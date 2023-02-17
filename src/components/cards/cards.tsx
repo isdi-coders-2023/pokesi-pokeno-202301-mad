@@ -1,7 +1,7 @@
-import { PokeApiRepo } from "../../../services/repository/poke.api.repo";
-import { PokeStructure } from "../../../models/poke";
+import { PokeStructure } from "../../models/poke";
 import "./cards.scss";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { PokeApiRepo } from "../../services/repository/poke.api.repo";
 
 export function Cards() {
   const repo = useMemo(() => new PokeApiRepo(), []);
