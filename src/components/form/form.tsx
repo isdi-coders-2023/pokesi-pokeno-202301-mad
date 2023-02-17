@@ -1,5 +1,5 @@
 import { SyntheticEvent, useState } from "react";
-import "../form/form.scss";
+import "./form.scss";
 
 export default function Form() {
   const [nameTrainer, setNameTrainer] = useState("");
