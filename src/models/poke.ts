@@ -20,7 +20,11 @@ export type PokeStructure = {
   sprites: { front_default: string };
   types: [{ type: { name: string } }];
   weight: number;
-  isFavorite: false;
+  isFavorite: boolean;
+};
+
+export type TypesStructure = {
+  type: { name: string };
 };
 
 export type InfoStructure = {
