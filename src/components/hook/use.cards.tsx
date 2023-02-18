@@ -1,4 +1,4 @@
-import { useCallback, useReducer } from "react";
+import { useCallback, useMemo, useReducer } from "react";
 import { PokeStructure } from "../../models/poke";
 import { PokeApiRepo } from "../../services/repository/poke.api.repo";
 import { cardsReducer } from "../reducer/cards.reducer";
@@ -8,7 +8,7 @@ export type UsePokeStructure = ReturnType<typeof useCards>;
 export function useCards(repo: PokeApiRepo) {
   const initialState: PokeStructure[] = [];
 
-  // repo = useMemo(() => new PokeApiRepo(), []);
+  repo = useMemo(() => new PokeApiRepo(), []);
 
   const [some, dispatch] = useReducer(cardsReducer, initialState);
 
