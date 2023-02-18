@@ -25,28 +25,6 @@ export function useCards(repo: PokeApiRepo) {
     }
   }, [repo]);
 
-  // useEffect(() => {
-  //   handleLoad();
-  // }, [handleLoad]);
-
-  // const loadCards = useCallback(async () => {
-  //   try {
-  //     const cards = await repo.loadPokemons();
-  //     setCards(cards);
-  //   } catch (error) {
-  //     handlerError(error as Error);
-  //   }
-  // }, [repo]);
-
-  // const updateCard = async (task: PokeStructure) => {
-  //   try {
-  //     const finalCard = await repo.update(card);
-  //     setCards(cards.map((item) => (item.id === card.id ? finalCard : item)));
-  //   } catch (error) {
-  //     handlerError(error as Error);
-  //   }
-  // };
-
   return {
     some,
     loadPokemons,
