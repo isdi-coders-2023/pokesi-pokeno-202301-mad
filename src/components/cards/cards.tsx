@@ -7,7 +7,6 @@ export function Cards() {
   const { some, loadPokemons } = useCards(new PokeApiRepo());
   loadPokemons();
 
-  console.log(some);
   return (
     <div className="container">
       <ul className="card__container">
