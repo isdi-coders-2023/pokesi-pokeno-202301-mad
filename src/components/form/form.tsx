@@ -11,7 +11,7 @@ export default function Form() {
     name: nameTrainer,
     favoriteType: favoriteType,
     region: region,
-    //img: trainer,
+    img: trainer,
   };
   const handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
@@ -43,15 +43,9 @@ export default function Form() {
           </select>
         </label>
         <label htmlFor="">
-          <input
-            img={url}
-            value="Region"
-            type="text"
-            placeholder="Select your imagen for trainer "
-            required
-          />
+          value="Region" type="text"
+          <link rel="../../../../assets/trainer/bin.png" href="" />
         </label>
-
         <button onClick={() => handlerClick()}>Send</button>
       </form>
     </div>
