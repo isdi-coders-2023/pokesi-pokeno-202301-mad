@@ -3,6 +3,7 @@ import { AppRouter } from "../app.router/app.router";
 import { Footer } from "../footer/footer";
 import { Header } from "../header/header";
 import { Menu } from "../menu/menu";
+import { PrevNext } from "../prev.next/prev.next";
 
 export type MenuOption = {
   label: string;
@@ -23,6 +24,7 @@ function App() {
         <Menu options={menuOptions}></Menu>
       </Header>
       <AppRouter menuOptions={menuOptions}></AppRouter>
+      <PrevNext></PrevNext>
       <Footer></Footer>
     </div>
   );
