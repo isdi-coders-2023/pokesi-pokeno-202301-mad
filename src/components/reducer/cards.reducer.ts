@@ -9,14 +9,14 @@ export function cardsReducer(
   switch (action.type) {
     case cardsActions.load:
       return action.payload as PokeStructure[];
-    case cardsActions.add:
-      return [...state, action.payload as PokeStructure];
-    case cardsActions.update:
-      const payload = action.payload as PokeStructure;
-      return state.map((item) => (item.id === payload.id ? payload : item));
-    case cardsActions.delete:
-      const id = action.payload as PokeStructure["id"];
-      return state.filter((item) => item.id !== id);
+    // case cardsActions.add:
+    //   return [...state, action.payload as PokeStructure];
+    // case cardsActions.update:
+    //   const payload = action.payload as PokeStructure;
+    //   return state.map((item) => (item.id === payload.id ? payload : item));
+    // case cardsActions.delete:
+    //   const id = action.payload as PokeStructure["id"];
+    //   return state.filter((item) => item.id !== id);
     default:
       return state;
   }

@@ -17,23 +17,23 @@ export const loadCardsCreator = (payload: PokeStructure[]): CardsAction => {
   };
 };
 
-export const addCardsCreator = (payload: PokeStructure) => {
-  return {
-    type: cardsActions.add,
-    payload,
-  };
-};
+// export const addCardsCreator = (payload: PokeStructure) => {
+//   return {
+//     type: cardsActions.add,
+//     payload,
+//   };
+// };
 
-export const updateCardsCreator = (payload: PokeStructure) => {
-  return {
-    type: cardsActions.update,
-    payload,
-  };
-};
+// export const updateCardsCreator = (payload: PokeStructure) => {
+//   return {
+//     type: cardsActions.update,
+//     payload,
+//   };
+// };
 
-export const deleteCardsCreator = (payload: PokeStructure["id"]) => {
-  return {
-    type: cardsActions.delete,
-    payload,
-  };
-};
+// export const deleteCardsCreator = (payload: PokeStructure["id"]) => {
+//   return {
+//     type: cardsActions.delete,
+//     payload,
+//   };
+// };
