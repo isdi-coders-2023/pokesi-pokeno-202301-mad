@@ -24,7 +24,6 @@ function App() {
         <Menu options={menuOptions}></Menu>
       </Header>
       <AppRouter menuOptions={menuOptions}></AppRouter>
-      <PrevNext></PrevNext>
       <Footer></Footer>
     </div>
   );
