@@ -5,10 +5,13 @@
   padding-right: 2rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
+
   .prev {
     display: flex;
     justify-content: space-between;
     gap: 0.5rem;
+    border: none;
+    background-color: transparent;
 
     h3 {
       display: none;
@@ -26,6 +29,8 @@
     display: flex;
     justify-content: space-between;
     gap: 0.5rem;
+    border: none;
+    background-color: transparent;
     h3 {
       display: none;
       font-size: 0.8rem;
