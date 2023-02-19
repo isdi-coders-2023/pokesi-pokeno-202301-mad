@@ -1,6 +1,3 @@
-import { useEffect } from "react";
-import { PokeApiRepo } from "../../services/repository/poke.api.repo";
-import { useCards } from "../hook/use.cards";
 import "./prev.next.scss";
 export function PrevNext() {
   return (
