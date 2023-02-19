@@ -1,24 +1,31 @@
+import { LoadPokeStructure } from "../../models/poke";
 import "./prev.next.scss";
+export function PrevNext(props: LoadPokeStructure) {
+  const handlePrevPage = () => {
+    props.previous;
+  };
+  const handleNextPage = () => {
+    props.next;
+  };
 
-export function PrevNext() {
   return (
     <div className="prevnext-buttons">
-      <div className="prev">
+      <button className="prev" onClick={handlePrevPage}>
         <img
           className="prev_button"
           src="../../../assets/prevnext/pages.png"
           alt="previous"
         />
         <h3 className="prev-text">Previous</h3>
-      </div>
-      <div className="next">
+      </button>
+      <button className="next" onClick={handleNextPage}>
         <h3 className="n-text">Next</h3>
         <img
           className="next_button"
           src="../../../assets/prevnext/pages.png"
           alt="next"
         />
-      </div>
+      </button>
     </div>
   );
 }

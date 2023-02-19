@@ -5,6 +5,7 @@ import { cardsReducer } from "../reducer/cards.reducer";
 import * as ac from "../reducer/cards.action.creators";
 
 export type UsePokeStructure = ReturnType<typeof useCards>;
+
 export function useCards(repo: PokeApiRepo) {
   const initialState: PokeStructure[] = [];
 
