@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-useless-constructor */
 import { InfoStructure, LoadPokeStructure } from "../../models/poke";
 
 export type PokeApiType = {
@@ -9,20 +7,17 @@ export type PokeApiType = {
 
 export class PokeApiRepo {
   url: string;
-  next: string;
   typesUrl: string;
   regionsUrl: string;
   constructor() {
     this.url = "https://pokeapi.co/api/v2/pokemon/";
     this.typesUrl = "https://pokeapi.co/api/v2/type/";
     this.regionsUrl = "https://pokeapi.co/api/v2/region/";
-    this.next = "";
   }
 
-  async loadPokes(link: string = this.url) {
-    const res = await fetch(link);
+  async loadPokes() {
+    const res = await fetch(this.url);
     const data = (await res.json()) as LoadPokeStructure;
-    this.next = data.next;
     const pokeArr = Object.values(data.results);
     const some = await this.sortPokemons(pokeArr);
     return await Promise.all(some);
@@ -50,13 +45,5 @@ export class PokeApiRepo {
     const data = (await resp.json()) as InfoStructure;
     const regions = data.results.map((item) => item.name);
     return regions;
-  }
-
-  async nextPokemons() {
-    const some = await this.loadPokes(this.next);
-    const next = await some;
-    return await Promise.all(next);
-    // const nextData = await this.loadPokes(next);
-    // return nextData;
   }
 }

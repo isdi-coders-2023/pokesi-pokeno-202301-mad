@@ -3,12 +3,6 @@ import { PokeApiRepo } from "../../services/repository/poke.api.repo";
 import { useCards } from "../hook/use.cards";
 import "./prev.next.scss";
 export function PrevNext() {
-  const { nextPokes } = useCards(new PokeApiRepo());
-
-  useEffect(() => {
-    nextPokes();
-  }, [nextPokes]);
-
   return (
     <div className="prevnext-buttons">
       <button className="prev">

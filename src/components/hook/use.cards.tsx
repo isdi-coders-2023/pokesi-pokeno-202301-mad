@@ -21,18 +21,8 @@ export function useCards(repo: PokeApiRepo) {
     }
   }, [repo]);
 
-  const nextPokes = useCallback(async () => {
-    try {
-      const next = await repo.nextPokemons();
-      dispatch(ac.nextPokesCreator(next));
-    } catch (error) {
-      handleError(error as Error);
-    }
-  }, [repo]);
-
   return {
     some,
     loadPokemons,
-    nextPokes,
   };
 }
