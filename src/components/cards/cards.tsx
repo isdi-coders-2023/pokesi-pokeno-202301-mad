@@ -1,29 +1,22 @@
-import { PokeStructure } from "../../models/poke";
 import "./cards.scss";
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { PokeApiRepo } from "../../services/repository/poke.api.repo";
 import { Card } from "../card/card";
+import { PokeApiRepo } from "../../services/repository/poke.api.repo";
+import { useCards } from "../hook/use.cards";
+import { useEffect } from "react";
 
 export function Cards() {
-  const repo = useMemo(() => new PokeApiRepo(), []);
-
-  const [some, setSome] = useState<PokeStructure[]>([]);
-
-  const handleLoad = useCallback(async () => {
-    const poke = await repo.loadPokemons();
-    setSome(poke);
-  }, [repo]);
+  const { some, loadPokemons } = useCards(new PokeApiRepo());
 
   useEffect(() => {
-    handleLoad();
-  }, [handleLoad]);
+    loadPokemons();
+  }, [loadPokemons]);
 
   return (
     <div className="container">
       <ul className="card__container">
-        {some.map((pokemon) => {
-          return <Card {...pokemon} key={pokemon.id}></Card>;
-        })}
+        {some.map((pokemon) => (
+          <Card {...pokemon} key={pokemon.id}></Card>
+        ))}
       </ul>
     </div>
   );

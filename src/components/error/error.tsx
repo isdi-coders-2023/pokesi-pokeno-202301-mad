@@ -7,7 +7,9 @@ export function Error() {
       <img src="../../../assets/error/snorlax.gif" alt="snorlax" />
       <h2>Path not found</h2>
       <button type="button" className="button-home">
-        <Link to="/">Home</Link>
+        <Link to="/" className="error-link">
+          Home
+        </Link>
       </button>
     </div>
   );

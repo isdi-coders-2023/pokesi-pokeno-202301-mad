@@ -27,6 +27,7 @@
   list-style: none;
   flex-direction: column;
   width: 9rem;
+  margin-bottom: 1rem;
   &__info {
     display: flex;
     flex-direction: column;
@@ -76,6 +77,11 @@
       .card {
         transform: scale(1.3);
       }
+    }
+
+    .card:hover {
+      transform: scale(1.4);
+      transition: transform 0.2s;
     }
   }
 }
