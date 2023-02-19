@@ -12,8 +12,6 @@ import { PokeContextProvider } from "../../context/poke.context.provider";
 import { PokeApiRepo } from "../../services/repository/poke.api.repo";
 import { useCards } from "./use.cards";
 
-// let mockRepo: PokeApiRepo;
-
 const mockRepo = {
   loadPokes: jest.fn().mockReturnValue(Promise.resolve([{ name: "pikachu" }])),
   sortPokemons: jest.fn(),
