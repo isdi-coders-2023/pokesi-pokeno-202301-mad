@@ -17,7 +17,7 @@ export class PokeApiRepo {
     this.regionsUrl = "https://pokeapi.co/api/v2/region/";
   }
 
-  async loadPokemons() {
+  async loadPokes() {
     const res = await fetch(this.url);
     const data = (await res.json()) as LoadPokeStructure;
     const pokeArr = Object.values(data.results);

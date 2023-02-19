@@ -25,7 +25,7 @@ describe("Given the PokeApiRepo", () => {
       global.fetch = jest.fn().mockResolvedValue({
         json: jest.fn().mockResolvedValue(mockFetch),
       });
-      const load = (await repo.loadPokemons()) as unknown as LoadPokeStructure;
+      const load = (await repo.loadPokes()) as unknown as LoadPokeStructure;
       expect(load).toEqual(Object(load));
     });
   });
