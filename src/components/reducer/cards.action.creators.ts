@@ -16,3 +16,10 @@ export const loadCardsCreator = (payload: PokeStructure[]): CardsAction => {
     payload,
   };
 };
+
+export const nextPokesCreator = (payload: PokeStructure[]): CardsAction => {
+  return {
+    type: cardsActions.load,
+    payload,
+  };
+};

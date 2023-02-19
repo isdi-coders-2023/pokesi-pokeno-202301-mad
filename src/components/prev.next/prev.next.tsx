@@ -1,16 +1,17 @@
-import { LoadPokeStructure } from "../../models/poke";
+import { useEffect } from "react";
+import { PokeApiRepo } from "../../services/repository/poke.api.repo";
+import { useCards } from "../hook/use.cards";
 import "./prev.next.scss";
-export function PrevNext(props: LoadPokeStructure) {
-  const handlePrevPage = () => {
-    props.previous;
-  };
-  const handleNextPage = () => {
-    props.next;
-  };
+export function PrevNext() {
+  const { nextPokes } = useCards(new PokeApiRepo());
+
+  useEffect(() => {
+    nextPokes();
+  }, [nextPokes]);
 
   return (
     <div className="prevnext-buttons">
-      <button className="prev" onClick={handlePrevPage}>
+      <button className="prev">
         <img
           className="prev_button"
           src="../../../assets/prevnext/pages.png"
@@ -18,7 +19,7 @@ export function PrevNext(props: LoadPokeStructure) {
         />
         <h3 className="prev-text">Previous</h3>
       </button>
-      <button className="next" onClick={handleNextPage}>
+      <button className="next">
         <h3 className="n-text">Next</h3>
         <img
           className="next_button"
