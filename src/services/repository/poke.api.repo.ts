@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-useless-constructor */
 import { InfoStructure, LoadPokeStructure } from "../../models/poke";
 
 export type PokeApiType = {
