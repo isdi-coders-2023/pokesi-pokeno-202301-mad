@@ -9,7 +9,9 @@ export function Menu({ options }: MenuProps) {
   return (
     <nav className="header-nav">
       <ul className="header-list">
-        <li className="home">Home</li>
+        <li className="home">
+          <Link to="/">Home</Link>
+        </li>
         <li className="favorites">
           <Link to="/">Favorites</Link>
         </li>
