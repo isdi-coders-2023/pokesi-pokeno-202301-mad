@@ -1,3 +1,9 @@
 import { createContext } from "react";
+import { PokeStructure } from "../models/poke";
 
-export const PokeContext = createContext({});
+type ContextType = {
+  pokes: PokeStructure[];
+  loadPokemons: () => Promise<void>;
+};
+
+export const PokeContext = createContext({} as ContextType);

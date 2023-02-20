@@ -1,4 +1,4 @@
-import { useCallback, useReducer } from "react";
+import { useCallback, useEffect, useReducer } from "react";
 import { PokeStructure } from "../../models/poke";
 import { PokeApiRepo } from "../../services/repository/poke.api.repo";
 import { cardsReducer } from "../reducer/cards.reducer";
@@ -6,7 +6,7 @@ import * as ac from "../reducer/cards.action.creators";
 
 export function useCards(repo: PokeApiRepo) {
   const initialState: PokeStructure[] = [];
-  const [some, dispatch] = useReducer(cardsReducer, initialState);
+  const [pokes, dispatch] = useReducer(cardsReducer, initialState);
 
   const handleError = (error: Error) => {
     console.log(error.message);
@@ -21,8 +21,12 @@ export function useCards(repo: PokeApiRepo) {
     }
   }, [repo]);
 
+  useEffect(() => {
+    loadPokemons();
+  }, []);
+
   return {
-    some,
+    pokes,
     loadPokemons,
   };
 }
