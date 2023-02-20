@@ -18,16 +18,20 @@
   display: grid;
   gap: 1rem;
   padding: 0.5rem;
-  grid-template-columns: 1fr 1fr;
-  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
-}
+  grid-template-columns: repeat(auto-fit, minmax(5rem, 6rem));
 
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
 .card {
   @include card-box();
   list-style: none;
   flex-direction: column;
-  width: 9rem;
   margin-bottom: 1rem;
+  width: 9.5rem;
+  height: 11.5rem;
   &__info {
     display: flex;
     flex-direction: column;
