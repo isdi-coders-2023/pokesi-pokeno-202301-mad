@@ -1,11 +1,13 @@
+import { useContext } from "react";
 import { useParams } from "react-router-dom";
+import { PokeContext } from "../../context/poke.context";
 import { PokeApiRepo } from "../../services/repository/poke.api.repo";
 import { useCards } from "../hook/use.cards";
 import "./details.scss";
 
 export function Details() {
   const { id } = useParams();
-  const { pokes } = useCards(new PokeApiRepo());
+  const { pokes } = useContext(PokeContext);
 
   const pokeInfo = pokes.find((item) => item.id === Number(id));
 
@@ -22,9 +24,9 @@ export function Details() {
         ></img>
       </div>
       <div className="types-container">
-        <div className="type">
-          {pokeInfo?.types.map((type) => type.type.name)}
-        </div>
+        {pokeInfo?.types.map((type) => (
+          <h3 className="type">{type.type.name}</h3>
+        ))}
       </div>
       <div className="hewe-container">
         <h3>HEIGHT: {pokeInfo?.height}</h3>
