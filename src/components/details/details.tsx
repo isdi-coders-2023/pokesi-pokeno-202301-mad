@@ -12,24 +12,32 @@ export function Details() {
   return (
     <div className="detail-container">
       <div className="detail-info">
-        <h1>{pokeInfo?.name}</h1>
-        <h2>{pokeInfo?.id}</h2>
+        <h1>{pokeInfo?.name.toUpperCase()}</h1>
+        <h2># {pokeInfo?.id}</h2>
       </div>
-      <img
-        src={pokeInfo?.sprites.front_default}
-        alt={`${pokeInfo?.name} sprite`}
-      ></img>
+      <div className="detail-img">
+        <img
+          src={pokeInfo?.sprites.front_default}
+          alt={`${pokeInfo?.name} sprite`}
+        ></img>
+      </div>
       <div className="types-container">
-        {pokeInfo?.types.map((type) => type.type.name)}
+        <div className="type">
+          {pokeInfo?.types.map((type) => type.type.name)}
+        </div>
       </div>
       <div className="hewe-container">
-        <h3>{pokeInfo?.height}</h3>
-        <h3>{pokeInfo?.weight}</h3>
+        <h3>HEIGHT: {pokeInfo?.height}</h3>
+        <h3>WEIGHT: {pokeInfo?.weight}</h3>
       </div>
       <div className="detail-buttons">
-        <button>fight</button>
+        <button className="fight">fight</button>
         <button>
-          <img src="../../../assets/card/heart.png" alt="" />
+          <img
+            className="like-white"
+            src="../../../assets/card/heart.png"
+            alt=""
+          />
         </button>
       </div>
     </div>
