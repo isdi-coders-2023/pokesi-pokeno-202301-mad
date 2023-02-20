@@ -7,9 +7,9 @@ import { Link } from "react-router-dom";
 
 export function Cards() {
   const { pokes, loadPokemons } = useCards(new PokeApiRepo());
-
   useEffect(() => {
     loadPokemons();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

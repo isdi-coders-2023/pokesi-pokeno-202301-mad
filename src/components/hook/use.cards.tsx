@@ -23,6 +23,7 @@ export function useCards(repo: PokeApiRepo) {
 
   useEffect(() => {
     loadPokemons();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return {
