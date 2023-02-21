@@ -43,7 +43,9 @@ describe("Given the TestComponent", () => {
   });
   describe("When the user clicks it", () => {
     test("Then loadPokes should be called", async () => {
-      await fireEvent.click(screen.getByText(/load/i));
+      await act(() => {
+        fireEvent.click(screen.getByText(/load/i));
+      });
       await waitFor(() => {
         expect(mockRepo.loadPokes).toHaveBeenCalled();
       });

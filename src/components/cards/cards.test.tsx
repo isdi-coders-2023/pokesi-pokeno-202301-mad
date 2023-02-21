@@ -2,6 +2,7 @@
 /* eslint-disable testing-library/no-render-in-setup */
 import { render, screen } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
+import { MemoryRouter as Router } from "react-router-dom";
 import { Cards } from "./cards";
 
 describe("Given the Card component", () => {
@@ -14,7 +15,11 @@ describe("Given the Card component", () => {
     describe("SOME", () => {
       test("QLQ", async () => {
         act(() => {
-          render(<Cards></Cards>);
+          render(
+            <Router>
+              <Cards></Cards>
+            </Router>
+          );
         });
         const name = await screen.findByRole(
           "heading",

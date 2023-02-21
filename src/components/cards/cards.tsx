@@ -5,6 +5,8 @@ import { useCards } from "../hook/use.cards";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
+
+
 export function Cards() {
   const { pokes, loadPokemons } = useCards(new PokeApiRepo());
   useEffect(() => {
