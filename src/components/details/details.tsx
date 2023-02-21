@@ -1,8 +1,6 @@
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { PokeContext } from "../../context/poke.context";
-import { PokeApiRepo } from "../../services/repository/poke.api.repo";
-import { useCards } from "../hook/use.cards";
 import "./details.scss";
 
 export function Details() {
@@ -25,7 +23,9 @@ export function Details() {
       </div>
       <div className="types-container">
         {pokeInfo?.types.map((type) => (
-          <h3 className="type">{type.type.name}</h3>
+          <h3 className="type" key={type.type.name}>
+            {type.type.name}
+          </h3>
         ))}
       </div>
       <div className="hewe-container">
