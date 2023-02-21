@@ -43,7 +43,7 @@ describe("Given the TestComponent", () => {
   });
   describe("When the user clicks it", () => {
     test("Then loadPokes should be called", async () => {
-      await act(() => {
+      act(() => {
         fireEvent.click(screen.getByText(/load/i));
       });
       await waitFor(() => {
