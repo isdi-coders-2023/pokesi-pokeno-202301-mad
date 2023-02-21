@@ -3,19 +3,24 @@ import { Card } from "../card/card";
 import { PokeApiRepo } from "../../services/repository/poke.api.repo";
 import { useCards } from "../hook/use.cards";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+
+
 
 export function Cards() {
-  const { some, loadPokemons } = useCards(new PokeApiRepo());
-
+  const { pokes, loadPokemons } = useCards(new PokeApiRepo());
   useEffect(() => {
     loadPokemons();
-  }, [loadPokemons]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="container">
       <ul className="card__container">
-        {some.map((pokemon) => (
-          <Card {...pokemon} key={pokemon.id}></Card>
+        {pokes.map((pokemon) => (
+          <Link to={`/details/${pokemon.id}`} key={pokemon.id}>
+            <Card {...pokemon}></Card>
+          </Link>
         ))}
       </ul>
     </div>

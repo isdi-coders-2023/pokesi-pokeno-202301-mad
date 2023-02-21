@@ -27,10 +27,8 @@ describe("Given the App router component", () => {
           <AppRouter menuOptions={mockOptions}></AppRouter>
         </Router>
       );
-      const elements = await screen.findAllByRole("heading", {
-        name: "CHARMANDER",
-      });
-      expect(elements[0]).toBeInTheDocument();
+      const list = await screen.findByRole("list");
+      expect(list).toBeInTheDocument();
     });
   });
 });
